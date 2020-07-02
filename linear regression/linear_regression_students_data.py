@@ -4,7 +4,8 @@ from sklearn.utils import shuffle
 import numpy as np
 import pandas as pd
 import pickle
-
+import matplotlib.pyplot as plt
+from matplotlib import style
 data =  pd.read_csv('student-mat.csv', sep=";")
 
 data = data[['G1', 'G2', 'G3', 'studytime', 'failures', 'absences']]
@@ -36,3 +37,12 @@ predictions = linear.predict(x_test)
 
 for i in range(len(predictions)):
     print(predictions[i], x_test[i], y_test[i])
+plt.style.use('ggplot')
+plot = "failures"
+plt.scatter(data[plot], data['G3'])
+plt.legend(loc = 4)
+
+plt.xlabel(plot)
+plt.ylabel("final result")
+
+plt.show()

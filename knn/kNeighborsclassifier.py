@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-data = pd.read_csv("knn/car.data")
+data = pd.read_csv("car.data")
 le = preprocessing.LabelEncoder()
 
 buying = le.fit_transform(list(data['buying']))
