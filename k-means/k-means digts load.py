@@ -10,10 +10,12 @@ digits = load_digits()
 
 data = scale(digits.data)
 y = digits.target
+print(y)
 # k = len(np.unique(y))
 k = 30
 samples, features = data.shape
-
+print(samples)
+print(features)
 
 def bench_k_means(estimator, name, data):
     estimator.fit(data)
