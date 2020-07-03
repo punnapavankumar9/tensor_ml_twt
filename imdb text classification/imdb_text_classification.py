@@ -46,7 +46,7 @@ test_data = keras.preprocessing.sequence.pad_sequences(test_data, maxlen=250, pa
 # model.fit(x_train, y_train, epochs=40, batch_size=512, validation_data=(x_val, y_val))
 # model.save('imdb.h5')
 
-model = keras.models.load_model('imdb text classification/imdb.h5')
+model = keras.models.load_model('imdb.h5')
 result = model.evaluate(test_data, test_lables)
 
 
@@ -62,7 +62,7 @@ def review_encode(s):
     return encoded
 
 
-with open("imdb text classification/test_review.txt", encoding="utf-8") as f:
+with open("test_review.txt", encoding="utf-8") as f:
     for line in f.readlines():
         nline = line.replace(",", "").replace(".", "").replace("(", "").replace(")", "").replace(":", "").replace("\"", "").strip().split(" ")
         encode = review_encode(nline)
