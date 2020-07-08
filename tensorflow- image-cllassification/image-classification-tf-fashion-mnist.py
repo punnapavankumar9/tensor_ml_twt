@@ -3,6 +3,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 data = keras.datasets.fashion_mnist
 
 (train_images, train_labels), (test_images, test_labels) = data.load_data()
@@ -14,13 +15,13 @@ train_images = train_images / 255.0
 test_images = test_images / 255.0
 
 
-model = keras.Sequential([
+model = keras.Sequenttial([
     keras.layers.Flatten(input_shape=(28,28)),
     keras.layers.Dense(128),
     keras.layers.Dense(10)
 ])
 
-model.compile(optimizer='adam',loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True), metrics=['accuracy'])
+model.compile(optimizer='adam',loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True ), metrics=['accuracy'])
 model.fit(train_images, train_labels, epochs=5)
 
 test_loss , test_acc = model.evaluate(test_images, test_labels)
@@ -28,7 +29,7 @@ print(test_acc)
 
 predict_model = keras.Sequential([model, keras.layers.Softmax()])
 
-predictions = predict_model.predict(test_images)
+predictions = predict_model.predict(tes_images)
 
 plt.figure(figsize=(10,10))
 for i in range(25):

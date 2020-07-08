@@ -6,7 +6,7 @@ data = keras.datasets.imdb
 
 (train_data, train_lables), (test_data, test_lables) = data.load_data(num_words=88000)
 
-# print(train_data[0])
+print(test_lables[0])
 
 word_index = data.get_word_index()
 word_index = {k: (v + 3) for k, v in word_index.items()}
